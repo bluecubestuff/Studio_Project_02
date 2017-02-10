@@ -1,14 +1,10 @@
-﻿Build started 10/2/2017 6:22:58 PM.
-     1>Project "C:\Users\Steven\Desktop\poly stuff\Assignemnt03_UI\DM2122_Framework\Application\Application.vcxproj" on node 2 (Build target(s)).
+﻿Build started 10/2/2017 7:08:45 PM.
+     1>Project "D:\SP2\Studio_Project_Framework\DM2122_Framework\Application\Application.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         D:\Program Files (x86)\Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\Users\Steven\Desktop\poly stuff\Assignemnt03_UI\DM2122_Framework\\glew\include" /I"C:\Users\Steven\Desktop\poly stuff\Assignemnt03_UI\DM2122_Framework\\glfw\include" /I"C:\Users\Steven\Desktop\poly stuff\Assignemnt03_UI\DM2122_Framework\\Common\Source" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source\Application.cpp Source\Camera3.cpp Source\StudioProject.cpp
-         Camera3.cpp
-         Application.cpp
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         StudioProject.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\SP2\Studio_Project_Framework\DM2122_Framework\\glew\include /ID:\SP2\Studio_Project_Framework\DM2122_Framework\\glfw\include /ID:\SP2\Studio_Project_Framework\DM2122_Framework\\Common\Source /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source\MeshBuilder.cpp
+         MeshBuilder.cpp
        Link:
-         D:\Program Files (x86)\Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Steven\Desktop\poly stuff\Assignemnt03_UI\DM2122_Framework\Debug\Application.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Users\Steven\Desktop\poly stuff\Assignemnt03_UI\DM2122_Framework\\glew\lib" /LIBPATH:"C:\Users\Steven\Desktop\poly stuff\Assignemnt03_UI\DM2122_Framework\\glfw\lib-msvc120" /LIBPATH:"C:\Users\Steven\Desktop\poly stuff\Assignemnt03_UI\DM2122_Framework\Debug" glew32.lib glfw3.lib opengl32.lib winmm.lib Common.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Steven\Desktop\poly stuff\Assignemnt03_UI\DM2122_Framework\Debug\Application.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Steven\Desktop\poly stuff\Assignemnt03_UI\DM2122_Framework\Debug\Application.lib" /MACHINE:X86 Debug\Application.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\SP2\Studio_Project_Framework\DM2122_Framework\Debug\Application.exe" /INCREMENTAL /NOLOGO /LIBPATH:D:\SP2\Studio_Project_Framework\DM2122_Framework\\glew\lib /LIBPATH:"D:\SP2\Studio_Project_Framework\DM2122_Framework\\glfw\lib-msvc120" /LIBPATH:D:\SP2\Studio_Project_Framework\DM2122_Framework\Debug glew32.lib glfw3.lib opengl32.lib winmm.lib Common.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\SP2\Studio_Project_Framework\DM2122_Framework\Debug\Application.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\SP2\Studio_Project_Framework\DM2122_Framework\Debug\Application.lib" /MACHINE:X86 Debug\Application.obj
          Debug\Camera.obj
          Debug\Camera2.obj
          Debug\Camera3.obj
@@ -20,9 +16,9 @@
          Debug\shader.obj
          Debug\StudioProject.obj
          Debug\Utility.obj
-         Application.vcxproj -> C:\Users\Steven\Desktop\poly stuff\Assignemnt03_UI\DM2122_Framework\Debug\Application.exe
-     1>Done Building Project "C:\Users\Steven\Desktop\poly stuff\Assignemnt03_UI\DM2122_Framework\Application\Application.vcxproj" (Build target(s)).
+         Application.vcxproj -> D:\SP2\Studio_Project_Framework\DM2122_Framework\Debug\Application.exe
+     1>Done Building Project "D:\SP2\Studio_Project_Framework\DM2122_Framework\Application\Application.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.54
+Time Elapsed 00:00:00.76

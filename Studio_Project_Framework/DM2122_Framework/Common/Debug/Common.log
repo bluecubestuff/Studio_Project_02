@@ -1,4 +1,4 @@
-﻿Build started 10/2/2017 7:13:32 PM.
+﻿Build started 10/2/2017 7:08:45 PM.
      1>Project "D:\SP2\Studio_Project_Framework\DM2122_Framework\Common\Common.vcxproj" on node 2 (Build target(s)).
      1>Lib:
          Common.vcxproj -> D:\SP2\Studio_Project_Framework\DM2122_Framework\Debug\Common.lib
@@ -6,4 +6,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.17
+Time Elapsed 00:00:00.03

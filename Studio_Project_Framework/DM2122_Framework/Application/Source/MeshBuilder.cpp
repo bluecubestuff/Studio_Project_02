@@ -275,7 +275,7 @@ Mesh* MeshBuilder::GenerateHemiSphere(const std::string &meshName, Color color, 
 	std::vector<unsigned> index_buffer_data;
 
 	float anglePerSlice = 360.f / numSlices;
-	for (unsigned phi = 0; phi < 90; phi += 10)
+	for (float phi = 0; phi < 90; phi += 10)
 	{
 		for (unsigned slice = 0; slice <= numSlices; slice++)
 		{

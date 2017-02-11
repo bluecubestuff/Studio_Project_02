@@ -19,6 +19,7 @@ public:
 	float timeCheck;
 
 	POINT mp; //mousePos for scene area
+	POINT curMousePos;
 
 	Camera3();
 	~Camera3();

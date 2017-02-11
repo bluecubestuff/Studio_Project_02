@@ -1,6 +1,17 @@
 #include "Camera2.h"
 #include "Application.h"
 #include "Mtx44.h"
+#include "MatrixStack.h"
+//Include GLEW
+#include <GL/glew.h>
+//Include GLFW
+#include <GLFW/glfw3.h>
+
+#include <iostream>
+using std::cout;
+using std::endl;
+
+extern GLFWwindow* m_window;
 
 Camera2::Camera2()
 {
@@ -15,73 +26,229 @@ void Camera2::Init(const Vector3& pos, const Vector3& target, const Vector3& up)
 	this->position = defaultPosition = pos;
 	this->target = defaultTarget = target;
 	Vector3 view = (target - position).Normalized();
-	Vector3 right = view.Cross(up);
+	right = view.Cross(up);
 	right.y = 0;
 	right.Normalize();
 	this->up = defaultUp = right.Cross(view).Normalized();
+
+	forward.Set(0, 0, -2);
+	back.Set(0, 0, 1);
+	playerLeft.Set(-1, 0, 0);
+	playerRight.Set(1, 0, 0);
+
+	GetCursorPos(&curMousePos);
+	glfwGetWindowSize(m_window, &WindowX, &WindowY);
+	SetCursorPos(WindowX / 2, WindowY / 2);
 }
 
 void Camera2::Update(double dt)
 {
-	static const float CAMERA_SPEED = 50.f;
-	if(Application::IsKeyPressed(VK_LEFT) || Application::IsKeyPressed('A'))
+	GetCursorPos(&curMousePos);
+	static const float CAMERA_SPEED = 40.f;
+
+	//for mouse pos in scene
+	mp.x = curMousePos.x;
+	mp.y = curMousePos.y;
+
+	if (Application::IsKeyPressed('W')) //move forwards
 	{
-		float yaw = (float)(-CAMERA_SPEED * dt);
-		Mtx44 rotation;
-		rotation.SetToRotation(yaw, 0, 1, 0);
-		position = rotation * position;
-		up = rotation * up;
+		Vector3 view;
+		view = up.Cross(right);
+		view.y = 0;
+		view.Normalize();
+
+		target = target + view;
+		position = position + view;
+
+		/*//free roam
+		Vector3 view;
+		view = (target - position).Normalized();
+		target += position;
+		position = position - forward;*/
 	}
-	if(Application::IsKeyPressed(VK_RIGHT) || Application::IsKeyPressed('D'))
+
+	if (Application::IsKeyPressed('S'))//move backwards
 	{
-		float yaw = (float)(CAMERA_SPEED * dt);
-		Mtx44 rotation;
-		rotation.SetToRotation(yaw, 0, 1, 0);
-		position = rotation * position;
-		up = rotation * up;
+		Vector3 view;
+		view = up.Cross(right);
+		view.y = 0;
+		view.Normalize();
+
+
+		target -= view;
+		position = position - view;
+
+		//free roam
+		//Vector3 view;
+		//view = (target - position).Normalized();
+		//position = position + forward;
 	}
-	if(Application::IsKeyPressed(VK_UP) || Application::IsKeyPressed('W'))
+
+	if (Application::IsKeyPressed('A'))//strafe left
 	{
-		float pitch = (float)(-CAMERA_SPEED * dt);
+		Vector3 view;
+		view = (target - position).Normalized();
+
+		right = view.Cross(up);
+		right.y = 0;
+		right.Normalize();
+
+
+		position = position - right;
+		target = position + view;
+
+	}
+
+	if (Application::IsKeyPressed('D'))//strafe right
+	{
+		Vector3 view;
+		view = (target - position).Normalized();
+
+		right = view.Cross(up);
+		right.y = 0;
+		right.Normalize();
+
+
+		position = position + right;
+		target = position + view;
+	}
+
+	if (curMousePos.x < anchorX)//yaw left
+	{
+		Vector3 view;
+		view = (target - position).Normalized();
+
+		right = view.Cross(up);
+		right.y = 0;
+		right.Normalize();
+		up = right.Cross(view).Normalized();
+
+		yawLeft = (float)((-CAMERA_SPEED * (curMousePos.x - anchorX)) * dt);
+		Mtx44 rotation;
+		rotation.SetToRotation(yawLeft, 0, 1, 0);
+
+		//---------------------------------
+		forward = rotation * forward;
+		back = rotation * back;
+		playerRight = rotation * playerRight;
+		playerLeft = rotation * playerLeft;
+		//---------------------------------
+
+		view = rotation * view;
+		target = position + view;
+	}
+	if (curMousePos.x > anchorX)//yaw right
+	{
+		Vector3 view;
+		view = (target - position).Normalized();
+
+		right = view.Cross(up);
+		right.y = 0;
+		right.Normalize();
+		up = right.Cross(view).Normalized();
+
+		yawRight = (float)((CAMERA_SPEED * (anchorX - curMousePos.x)) * dt);
+		Mtx44 rotation;
+		rotation.SetToRotation(yawRight, 0, 1, 0);
+
+		//---------------------------------
+		forward = rotation * forward;
+		back = rotation * back;
+		playerRight = rotation * playerRight;
+		playerLeft = rotation * playerLeft;
+		//---------------------------------
+
+		view = rotation * view;
+		target = position + view;
+	}
+
+	if (limitPitch < 55 && curMousePos.y < anchorY)//pitch up
+	{
+
+
+		float pitch = (float)((CAMERA_SPEED * (anchorY - curMousePos.y)) * dt);
 		Vector3 view = (target - position).Normalized();
-		Vector3 right = view.Cross(up);
+		right = view.Cross(up);
 		right.y = 0;
 		right.Normalize();
 		up = right.Cross(view).Normalized();
 		Mtx44 rotation;
 		rotation.SetToRotation(pitch, right.x, right.y, right.z);
-		position = rotation * position;
+
+		//---------------------------------
+		forward = rotation * forward;
+		back = rotation * back;
+		playerRight = rotation * playerRight;
+		playerLeft = rotation * playerLeft;
+		//---------------------------------
+
+		view = rotation * view;
+		target = position + view;
+
+		limitPitch += pitch;
+
 	}
-	if(Application::IsKeyPressed(VK_DOWN) || Application::IsKeyPressed('S'))
+
+	if (limitPitch > -55 && curMousePos.y > anchorY)//pitch down
 	{
-		float pitch = (float)(CAMERA_SPEED * dt);
+		float pitch = (float)((-CAMERA_SPEED * (curMousePos.y - anchorY)) * dt);
 		Vector3 view = (target - position).Normalized();
-		Vector3 right = view.Cross(up);
+		right = view.Cross(up);
 		right.y = 0;
 		right.Normalize();
 		up = right.Cross(view).Normalized();
 		Mtx44 rotation;
 		rotation.SetToRotation(pitch, right.x, right.y, right.z);
-		position = rotation * position;
+
+		//---------------------------------
+		forward = rotation * forward;
+		back = rotation * back;
+		playerRight = rotation * playerRight;
+		playerLeft = rotation * playerLeft;
+		//---------------------------------
+
+		view = rotation * view;
+		target = position + view;
+
+		limitPitch += pitch;
+
 	}
-	if(Application::IsKeyPressed('N'))
-	{
-		Vector3 direction = target - position;
-		if(direction.Length() > 5)
-		{
-			Vector3 view = (target - position).Normalized();
-			position += view * (float)(10.f * dt);
-		}
-	}
-	if(Application::IsKeyPressed('M'))
+
+	//boundaryCheck();
+
+	if (Application::IsKeyPressed('N'))//move up(y-axis)
 	{
 		Vector3 view = (target - position).Normalized();
-		position -= view * (float)(10.f * dt);
+		Vector3 right = view.Cross(up);
+		right.y = 0;
+		right.Normalize();
+		up = right.Cross(view).Normalized();
+		position = position + up;
+		target = position + view;
 	}
-	if(Application::IsKeyPressed('R'))
+	if (Application::IsKeyPressed('M'))//move down(y-axis)
+	{
+		Vector3 view = (target - position).Normalized();
+		Vector3 right = view.Cross(up);
+		right.y = 0;
+		right.Normalize();
+		up = right.Cross(view).Normalized();
+		position = position - up;
+		target = position + view;
+	}
+
+	if (Application::IsKeyPressed('R'))//reset camera
 	{
 		Reset();
 	}
+
+	GetCursorPos(&curMousePos);
+	SetCursorPos(WindowX / 2, WindowY / 2);
+	anchorX = WindowX / 2;
+	anchorY = WindowY / 2;
+
+	mp.x = curMousePos.x;
+	mp.y = curMousePos.y;
 }
 
 void Camera2::Reset()
@@ -90,3 +257,4 @@ void Camera2::Reset()
 	target = defaultTarget;
 	up = defaultUp;
 }
+

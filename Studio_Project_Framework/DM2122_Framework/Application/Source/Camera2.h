@@ -3,6 +3,8 @@
 
 #include "Camera.h"
 
+#include <windows.h>
+
 class Camera2 : public Camera
 {
 public:
@@ -13,6 +15,16 @@ public:
 	Vector3 defaultPosition;
 	Vector3 defaultTarget;
 	Vector3 defaultUp;
+	Vector3 right;
+
+	float limitPitch;
+	float yawRight, yawLeft;
+	float limit;
+
+	float timeCheck;
+
+	POINT mp; //mousePos for scene area
+	POINT curMousePos;
 
 	Camera2();
 	~Camera2();

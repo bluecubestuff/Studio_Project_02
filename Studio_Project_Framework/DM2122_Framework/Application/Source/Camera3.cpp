@@ -13,7 +13,6 @@ using std::endl;
 
 
 extern GLFWwindow* m_window;
-POINT curMousePos;
 
 Camera3::Camera3()
 {

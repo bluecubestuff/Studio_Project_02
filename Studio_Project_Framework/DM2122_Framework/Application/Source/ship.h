@@ -3,6 +3,7 @@
 
 #include <vector>
 
+#include "Application.h"
 #include "Vector3.h"
 #include "Mtx44.h"
 
@@ -15,6 +16,8 @@ public:
 	Ship(Vector3 f, Vector3 u, Vector3 r, Vector3 p, Vector3 i, float s);
 	~Ship();
 
+	void playerShipUpdate(double dt);
+
 private:
 	Vector3 Forward;
 	Vector3 Up;
@@ -23,6 +26,8 @@ private:
 	Vector3 Inertia;
 
 	float Speed;
+
+	bool FlightAssist;
 
 	Mtx44 Stamp;
 protected:

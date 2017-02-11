@@ -2,27 +2,31 @@
 
 PlayerShip::PlayerShip()
 {
-	Forward = Vector3(0, 0, 1);
-	Up = Vector3(0, 1, 0);
-	Right = Vector3(1, 0, 0);
-	Position = Vector3(0, 0, 0);
-	Inertia = Vector3(0, 0, 0);
-	Speed = 0;
+	this->Forward = Vector3(0, 0, 1);
+	this->Up = Vector3(0, 1, 0);
+	this->Right = Vector3(1, 0, 0);
+	this->Position = Vector3(0, 0, 0);
+	this->Inertia = Vector3(0, 0, 0);
+	this->Speed = 0;
 
-	FlightAssist = true;
+	this->FlightAssist = true;
+	this->freeCam = false;
 
-	Stamp = Mtx44(Right.x, Right.y, Right.z, 0, Up.x, Up.y, Up.z, 0, Forward.x, Forward.y, Forward.z, 0, Position.x, Position.y, Position.z, 1);
+	this->Stamp = Mtx44(Right.x, Right.y, Right.z, 0, Up.x, Up.y, Up.z, 0, Forward.x, Forward.y, Forward.z, 0, Position.x, Position.y, Position.z, 1);
 }
 
 PlayerShip::PlayerShip(Vector3 f, Vector3 u, Vector3 r, Vector3 p, Vector3 i, float s)
 {
-	Forward = f;
-	Up = u;
-	Right = r;
-	Position = p;
-	Inertia = i;
+	this->Forward = f;
+	this->Up = u;
+	this->Right = r;
+	this->Position = p;
+	this->Inertia = i;
 
-	Stamp = Mtx44(r.x, r.y, r.z, 0, u.x, u.y, u.z, 0, f.x, f.y, f.z, 0, p.x, p.y, p.z, 1);
+	this->FlightAssist = true;
+	this->freeCam = false;
+
+	this->Stamp = Mtx44(r.x, r.y, r.z, 0, u.x, u.y, u.z, 0, f.x, f.y, f.z, 0, p.x, p.y, p.z, 1);
 }
 
 PlayerShip::~PlayerShip()
@@ -32,10 +36,10 @@ PlayerShip::~PlayerShip()
 
 void PlayerShip::playerInit()
 {
-
+	Camera.Init(this->Position, this->Forward, this->Up);
 }
 
-void PlayerShip::playerPlayerShipUpdate(double dt)	//Player PlayerShip movement and control
+void PlayerShip::playerShipUpdate(double dt)	//Player PlayerShip movement and control
 {
 	//========================================================================
 	//Setting FlightAssist on or off
@@ -46,6 +50,16 @@ void PlayerShip::playerPlayerShipUpdate(double dt)	//Player PlayerShip movement 
 	if (Application::IsKeyPressed('Z'))
 	{
 		FlightAssist = true;
+	}
+	//========================================================================
+	//toggle between mouse control the camera or the ship
+	if (Application::IsKeyPressed(VK_MBUTTON) && freeCam)
+	{
+		freeCam = false;
+	}
+	else if (Application::IsKeyPressed(VK_MBUTTON) && !freeCam)
+	{
+		freeCam = true;
 	}
 	//========================================================================
 	if (this->FlightAssist == false)	//FLIGHT ASSISTS OFF
@@ -112,6 +126,12 @@ void PlayerShip::playerPlayerShipUpdate(double dt)	//Player PlayerShip movement 
 
 	}
 	//===========================================================================
+	//mouse control for the ship
+	if (!freeCam)
+	{
+
+	}
+	//===========================================================================
 	this->Position += this->Inertia * (float)dt;	//update position according to PlayerShip inertia
-	Camera.Update(dt);
+	Camera.Update(dt, freeCam);
 }

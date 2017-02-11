@@ -83,6 +83,9 @@
     <ClCompile Include="Source\playerShip.cpp">
       <Filter>Source Files\Ship</Filter>
     </ClCompile>
+    <ClCompile Include="Source\enemyShip.cpp">
+      <Filter>Source Files\Ship</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Application.h">

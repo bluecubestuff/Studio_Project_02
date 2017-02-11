@@ -1,13 +1,14 @@
-﻿Build started 11/2/2017 4:25:50 PM.
+﻿Build started 11/2/2017 5:46:34 PM.
      1>Project "D:\SP2\Studio_Project_Framework\DM2122_Framework\Application\Application.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\SP2\Studio_Project_Framework\DM2122_Framework\\glew\include /ID:\SP2\Studio_Project_Framework\DM2122_Framework\\glfw\include /ID:\SP2\Studio_Project_Framework\DM2122_Framework\\Common\Source /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source\main.cpp
-         main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\SP2\Studio_Project_Framework\DM2122_Framework\\glew\include /ID:\SP2\Studio_Project_Framework\DM2122_Framework\\glfw\include /ID:\SP2\Studio_Project_Framework\DM2122_Framework\\Common\Source /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source\Application.cpp
+         Application.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\SP2\Studio_Project_Framework\DM2122_Framework\Debug\Application.exe" /INCREMENTAL /NOLOGO /LIBPATH:D:\SP2\Studio_Project_Framework\DM2122_Framework\\glew\lib /LIBPATH:"D:\SP2\Studio_Project_Framework\DM2122_Framework\\glfw\lib-msvc120" /LIBPATH:D:\SP2\Studio_Project_Framework\DM2122_Framework\Debug glew32.lib glfw3.lib opengl32.lib winmm.lib Common.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\SP2\Studio_Project_Framework\DM2122_Framework\Debug\Application.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\SP2\Studio_Project_Framework\DM2122_Framework\Debug\Application.lib" /MACHINE:X86 Debug\Application.obj
          Debug\Camera.obj
          Debug\Camera2.obj
          Debug\Camera3.obj
+         Debug\enemyShip.obj
          Debug\LoadOBJ.obj
          Debug\LoadTGA.obj
          Debug\main.obj
@@ -18,9 +19,10 @@
          Debug\ship.obj
          Debug\StudioProject.obj
          Debug\Utility.obj
+     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
          Application.vcxproj -> D:\SP2\Studio_Project_Framework\DM2122_Framework\Debug\Application.exe
      1>Done Building Project "D:\SP2\Studio_Project_Framework\DM2122_Framework\Application\Application.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.79
+Time Elapsed 00:00:01.40

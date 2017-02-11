@@ -4,6 +4,12 @@
 
 #include "timer.h"
 
+//Include GLEW
+#include <GL/glew.h>
+
+//Include GLFW
+#include <GLFW/glfw3.h>
+
 class Application
 {
 public:
@@ -13,11 +19,13 @@ public:
 	void Run();
 	void Exit();
 	static bool IsKeyPressed(unsigned short key);
+	static GLFWwindow* m_window;
 
 private:
 
 	//Declare a window object
 	StopWatch m_timer;
+	
 };
 
 #endif

@@ -3,8 +3,6 @@
 
 #include "ship.h"
 
-using std::vector;
-
 class PlayerShip : public Ship
 {
 public:
@@ -12,9 +10,11 @@ public:
 	PlayerShip(Vector3 f, Vector3 u, Vector3 r, Vector3 p, Vector3 i, float s);
 	~PlayerShip();
 
+	bool freeCam;
+
 	void playerInit();
 
-	void playerPlayerShipUpdate(double dt);
+	void playerShipUpdate(double dt);
 
 private:
 	Camera2 Camera;

@@ -10,8 +10,7 @@
 const unsigned char FPS = 60; // FPS of this game
 const unsigned int frameTime = 1000 / FPS; // time for each frame
 
-//Create a window and create its OpenGL context
-GLFWwindow* Application::m_window = glfwCreateWindow(800, 600, "Computer Graphics", NULL, NULL);
+GLFWwindow* m_window;
 
 //Define an error callback
 static void error_callback(int error, const char* description)
@@ -61,21 +60,24 @@ void Application::Init()
 	//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make MacOS happy; should not be needed
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); //We don't want the old OpenGL 
 
+	//Create a window and create its OpenGL context
+	m_window = glfwCreateWindow(800, 600, "Computer Graphics", NULL, NULL);
+
 	//If the window couldn't be created
-	if (!Application::m_window)
+	if (!m_window)
 	{
 		fprintf( stderr, "Failed to open GLFW window.\n" );
 		glfwTerminate();
 		exit(EXIT_FAILURE);
 	}
 
-	glfwSetWindowSizeCallback(Application::m_window, resize_callback);
+	glfwSetWindowSizeCallback(m_window, resize_callback);
 
 	//This function makes the context of the specified window current on the calling thread. 
-	glfwMakeContextCurrent(Application::m_window);
+	glfwMakeContextCurrent(m_window);
 
 	//Sets the key callback
-	//glfwSetKeyCallback(Application::m_window, key_callback);
+	//glfwSetKeyCallback(m_window, key_callback);
 
 	glewExperimental = true; // Needed for core profile
 	//Initialize GLEW
@@ -96,12 +98,12 @@ void Application::Run()
 	scene->Init();
 
 	m_timer.startTimer();    // Start timer to calculate how long it takes to render this frame
-	while (!glfwWindowShouldClose(Application::m_window) && !IsKeyPressed(VK_ESCAPE))
+	while (!glfwWindowShouldClose(m_window) && !IsKeyPressed(VK_ESCAPE))
 	{
 		scene->Update(m_timer.getElapsedTime());
 		scene->Render();
 		//Swap buffers
-		glfwSwapBuffers(Application::m_window);
+		glfwSwapBuffers(m_window);
 		//Get and organize events, like keyboard and mouse input, window resizing, etc...
 		glfwPollEvents();
         m_timer.waitUntil(frameTime);       // Frame rate limiter. Limits each frame to a specified time in ms.   
@@ -114,7 +116,7 @@ void Application::Run()
 void Application::Exit()
 {
 	//Close OpenGL window and terminate GLFW
-	glfwDestroyWindow(Application::m_window);
+	glfwDestroyWindow(m_window);
 	//Finalize and clean up GLFW
 	glfwTerminate();
 }

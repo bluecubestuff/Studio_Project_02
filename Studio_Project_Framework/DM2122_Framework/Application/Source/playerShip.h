@@ -1,5 +1,5 @@
-#ifndef PLAYER_SHIP_H
-#define PLAYER_SHIP_H
+#ifndef _PLAYER_SHIP_H
+#define _PLAYER_SHIP_H
 
 #include "ship.h"
 

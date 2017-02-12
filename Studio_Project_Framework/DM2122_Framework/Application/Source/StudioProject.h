@@ -119,7 +119,7 @@ private:
 	void RenderMesh(Mesh *mesh, bool enableLight);
 	void RenderText(Mesh* mesh, std::string text, Color color);
 	void RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y);
-	void RenderUI(Mesh* mesh, int x, int y, int sizex, int sizey);
+	void RenderUI(Mesh* mesh, float x, float y, float sizex, float sizey);
 
 	void RenderSkybox();
 

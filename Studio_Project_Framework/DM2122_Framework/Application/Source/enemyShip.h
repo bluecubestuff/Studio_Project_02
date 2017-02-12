@@ -1,5 +1,5 @@
-#ifndef ENEMY_SHIP_H
-#define ENEMY_SHIP_H
+#ifndef _ENEMY_SHIP_H
+#define _ENEMY_SHIP_H
 
 #include "ship.h"
 

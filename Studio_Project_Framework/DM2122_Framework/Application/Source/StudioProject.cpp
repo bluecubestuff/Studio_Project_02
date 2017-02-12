@@ -454,7 +454,7 @@ void StudioProject::RenderTextOnScreen(Mesh* mesh, std::string text, Color color
 }
 
 //============================================TESTING===============================================
-void StudioProject::RenderUI(Mesh* mesh, int x, int y, int sizex, int sizey)
+void StudioProject::RenderUI(Mesh* mesh, float x, float y, float sizex, float sizey)
 {
 	glDisable(GL_DEPTH_TEST);
 	Mtx44 ortho;

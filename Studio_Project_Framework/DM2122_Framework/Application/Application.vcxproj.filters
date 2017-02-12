@@ -86,6 +86,9 @@
     <ClCompile Include="Source\enemyShip.cpp">
       <Filter>Source Files\Ship</Filter>
     </ClCompile>
+    <ClCompile Include="Source\MouseControl.cpp">
+      <Filter>Source Files\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Application.h">
@@ -144,6 +147,9 @@
     </ClInclude>
     <ClInclude Include="Source\DetectMemoryLeak.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\MouseControl.h">
+      <Filter>Header Files\Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

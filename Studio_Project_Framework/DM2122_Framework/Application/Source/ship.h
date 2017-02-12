@@ -1,5 +1,5 @@
-#ifndef SHIP_H
-#define SHIP_H
+#ifndef _SHIP_H
+#define _SHIP_H
 
 #include <vector>
 

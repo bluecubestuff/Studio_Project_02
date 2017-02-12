@@ -1,5 +1,5 @@
-#ifndef CAMERA_3_H
-#define CAMERA_3_H
+#ifndef _CAMERA_3_H
+#define _CAMERA_3_H
 
 #include "Camera.h"
 #include <windows.h>

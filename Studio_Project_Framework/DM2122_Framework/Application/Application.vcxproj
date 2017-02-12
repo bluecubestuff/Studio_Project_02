@@ -94,6 +94,7 @@
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Mesh.cpp" />
     <ClCompile Include="Source\MeshBuilder.cpp" />
+    <ClCompile Include="Source\MouseControl.cpp" />
     <ClCompile Include="Source\playerShip.cpp" />
     <ClCompile Include="Source\shader.cpp" />
     <ClCompile Include="Source\ship.cpp" />
@@ -113,6 +114,7 @@
     <ClInclude Include="Source\Material.h" />
     <ClInclude Include="Source\Mesh.h" />
     <ClInclude Include="Source\MeshBuilder.h" />
+    <ClInclude Include="Source\MouseControl.h" />
     <ClInclude Include="Source\playerShip.h" />
     <ClInclude Include="Source\Scene.h" />
     <ClInclude Include="Source\shader.hpp" />

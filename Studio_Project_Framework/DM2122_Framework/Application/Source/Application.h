@@ -19,6 +19,7 @@ public:
 	void Run();
 	void Exit();
 	static bool IsKeyPressed(unsigned short key);
+	static GLFWwindow* m_window;
 
 private:
 

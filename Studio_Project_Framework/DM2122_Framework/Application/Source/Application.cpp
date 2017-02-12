@@ -10,7 +10,7 @@
 const unsigned char FPS = 60; // FPS of this game
 const unsigned int frameTime = 1000 / FPS; // time for each frame
 
-GLFWwindow* m_window;
+GLFWwindow* Application::m_window = NULL;
 
 //Define an error callback
 static void error_callback(int error, const char* description)

@@ -11,7 +11,7 @@
 using std::cout;
 using std::endl;
 
-extern GLFWwindow* m_window;
+//extern GLFWwindow* Application::m_window;
 
 Camera2::Camera2()
 {
@@ -37,7 +37,7 @@ void Camera2::Init(const Vector3& pos, const Vector3& target, const Vector3& up)
 	playerRight.Set(1, 0, 0);
 
 	GetCursorPos(&curMousePos);
-	glfwGetWindowSize(m_window, &WindowX, &WindowY);
+	glfwGetWindowSize(Application::m_window, &WindowX, &WindowY);
 	SetCursorPos(WindowX / 2, WindowY / 2);
 }
 

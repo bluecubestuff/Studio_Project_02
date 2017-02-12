@@ -8,13 +8,13 @@
 //Include GLFW
 #include <GLFW/glfw3.h>
 
-extern GLFWwindow* m_window;
-
 class Mouse
 {
 public:
 	int anchorX, anchorY;
 	int windowX, windowY;
+	POINT mousePosition;
+	POINT currMousePosition;
 };
 
 #endif

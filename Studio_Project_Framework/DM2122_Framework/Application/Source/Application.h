@@ -21,11 +21,14 @@ public:
 	static bool IsKeyPressed(unsigned short key);
 	static GLFWwindow* m_window;
 
-private:
-
 	//Declare a window object
-	StopWatch m_timer;
+	static StopWatch m_timer;
+
+private:
 	
 };
+
+static const unsigned char FPS = 60; // FPS of this game
+static const unsigned int frameTime = 1000 / FPS; // time for each frame
 
 #endif

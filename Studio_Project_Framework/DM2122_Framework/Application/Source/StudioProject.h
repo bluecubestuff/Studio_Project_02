@@ -12,6 +12,7 @@
 #include "MatrixStack.h"
 #include "Light.h"
 #include "playerShip.h"
+#include "DetectMemoryLeak.h"
 
 #include <string>
 #include <vector>

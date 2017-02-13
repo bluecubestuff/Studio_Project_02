@@ -3,6 +3,8 @@
 
 #include "Camera.h"
 #include "MouseControl.h"
+#include "DetectMemoryLeak.h"
+
 #include <windows.h>
 
 class Camera2 : public Camera

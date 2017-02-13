@@ -2,6 +2,7 @@
 #define _CAMERA_H
 
 #include "Vector3.h"
+#include "DetectMemoryLeak.h"
 
 class Camera
 {

@@ -2,6 +2,8 @@
 #define _CAMERA_3_H
 
 #include "Camera.h"
+#include "DetectMemoryLeak.h"
+
 #include <windows.h>
 
 class Camera3 : public Camera

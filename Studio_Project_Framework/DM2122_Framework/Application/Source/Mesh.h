@@ -2,7 +2,9 @@
 #define MESH_H
 
 #include <string>
+
 #include "material.h"
+#include "DetectMemoryLeak.h"
 /******************************************************************************/
 /*!
 		Class Mesh:

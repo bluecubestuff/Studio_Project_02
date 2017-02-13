@@ -2,6 +2,7 @@
 #include "Application.h"
 #include "Mtx44.h"
 #include "MatrixStack.h"
+#include "DetectMemoryLeak.h"
 //Include GLEW
 #include <GL/glew.h>
 //Include GLFW
@@ -51,7 +52,7 @@ void Camera2::Update(double dt, bool freeCam, Vector3 f, Vector3 r, Vector3 u, V
 	{
 		if (curMousePos.x > 0 && yawLimit < 70.f)
 		{
-			float yawSpeed = curMousePos.x * dt * CAMERA_SPEED;
+			float yawSpeed = curMousePos.x * (float)dt * CAMERA_SPEED;
 			Mtx44 yaw;
 			yaw.SetToRotation(-yawSpeed, u.x, u.y, u.z);
 			temp = yaw * temp;
@@ -61,7 +62,7 @@ void Camera2::Update(double dt, bool freeCam, Vector3 f, Vector3 r, Vector3 u, V
 		}
 		else if (curMousePos.x < 0 && yawLimit > -70.f)
 		{
-			float yawSpeed = curMousePos.x * dt * CAMERA_SPEED;
+			float yawSpeed = curMousePos.x * (float)dt * CAMERA_SPEED;
 			Mtx44 yaw;
 			yaw.SetToRotation(-yawSpeed, u.x, u.y, u.z);
 			temp = yaw * temp;
@@ -71,7 +72,7 @@ void Camera2::Update(double dt, bool freeCam, Vector3 f, Vector3 r, Vector3 u, V
 		}
 		if (curMousePos.y > 0 && pitchLimit > -89.f)
 		{
-			float pitchSpeed = curMousePos.y * dt * -CAMERA_SPEED;
+			float pitchSpeed = curMousePos.y * (float)dt * -CAMERA_SPEED;
 			Mtx44 pitch;
 			pitch.SetToRotation(pitchSpeed, camRight.x, camRight.y, camRight.z);
 			temp = pitch * temp;
@@ -80,7 +81,7 @@ void Camera2::Update(double dt, bool freeCam, Vector3 f, Vector3 r, Vector3 u, V
 		}
 		else if (curMousePos.y < 0 && pitchLimit < 89.f)
 		{
-			float pitchSpeed = curMousePos.y * dt * -CAMERA_SPEED;
+			float pitchSpeed = curMousePos.y * (float)dt * -CAMERA_SPEED;
 			Mtx44 pitch;
 			pitch.SetToRotation(pitchSpeed, camRight.x, camRight.y, camRight.z);
 			temp = pitch * temp;
@@ -92,6 +93,7 @@ void Camera2::Update(double dt, bool freeCam, Vector3 f, Vector3 r, Vector3 u, V
 	{
 		temp = f;
 		up = u;
+		camRight = r;
 	}
 
 	curMousePos.x = 0;

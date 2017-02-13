@@ -7,6 +7,7 @@
 #include "Vector3.h"
 #include "Mtx44.h"
 #include "Camera2.h"
+#include "DetectMemoryLeak.h"
 
 using std::vector;
 

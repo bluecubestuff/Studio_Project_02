@@ -1,3 +1,8 @@
+#ifndef _MATERIAL_H
+#define _MATERIAL_H
+
+#include "DetectMemoryLeak.h"
+
 struct Component
 {
 	float r, g, b;
@@ -26,3 +31,5 @@ struct Material
 		kShininess = 1.f;
 	}
 };
+
+#endif

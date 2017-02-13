@@ -1,36 +1,10 @@
-﻿Build started 2/13/2017 5:38:55 PM.
-     1>Project "C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Application\Application.vcxproj" on node 2 (Build target(s)).
+﻿Build started 13/2/2017 10:23:27 PM.
+     1>Project "D:\SP2\Studio_Project_Framework\DM2122_Framework\Application\Application.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\\glew\include /IC:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\\glfw\include /IC:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\\Common\Source /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source\Application.cpp Source\Camera.cpp Source\Camera2.cpp Source\Camera3.cpp Source\enemyShip.cpp Source\Item.cpp Source\LoadOBJ.cpp Source\LoadTGA.cpp Source\main.cpp Source\Mesh.cpp Source\MeshBuilder.cpp Source\MouseControl.cpp Source\playerShip.cpp Source\SceneManager.cpp Source\shader.cpp Source\ship.cpp Source\StudioProject.cpp Source\Utility.cpp Source\Weapon.cpp
-         Weapon.cpp
-         Utility.cpp
-         StudioProject.cpp
-         ship.cpp
-         shader.cpp
-         SceneManager.cpp
-         playerShip.cpp
-     1>c:\users\161996y\documents\studio_project_02\studio_project_framework\dm2122_framework\application\source\playership.cpp(67): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\161996y\documents\studio_project_02\studio_project_framework\dm2122_framework\application\source\playership.cpp(77): warning C4244: '-=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\161996y\documents\studio_project_02\studio_project_framework\dm2122_framework\application\source\playership.cpp(181): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-         MouseControl.cpp
-         MeshBuilder.cpp
-         Mesh.cpp
-         main.cpp
-         LoadTGA.cpp
-         LoadOBJ.cpp
-         Item.cpp
-         enemyShip.cpp
-         Camera3.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ID:\SP2\Studio_Project_Framework\DM2122_Framework\\glew\include /ID:\SP2\Studio_Project_Framework\DM2122_Framework\\glfw\include /ID:\SP2\Studio_Project_Framework\DM2122_Framework\\Common\Source /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source\Camera2.cpp
          Camera2.cpp
-     1>c:\users\161996y\documents\studio_project_02\studio_project_framework\dm2122_framework\application\source\camera2.cpp(54): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\161996y\documents\studio_project_02\studio_project_framework\dm2122_framework\application\source\camera2.cpp(64): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\161996y\documents\studio_project_02\studio_project_framework\dm2122_framework\application\source\camera2.cpp(74): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\161996y\documents\studio_project_02\studio_project_framework\dm2122_framework\application\source\camera2.cpp(83): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-         Camera.cpp
-         Application.cpp
-         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug\Application.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\\glew\lib /LIBPATH:"C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\\glfw\lib-msvc120" /LIBPATH:C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug glew32.lib glfw3.lib opengl32.lib winmm.lib Common.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug\Application.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug\Application.lib" /MACHINE:X86 Debug\Application.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\SP2\Studio_Project_Framework\DM2122_Framework\Debug\Application.exe" /INCREMENTAL /NOLOGO /LIBPATH:D:\SP2\Studio_Project_Framework\DM2122_Framework\\glew\lib /LIBPATH:"D:\SP2\Studio_Project_Framework\DM2122_Framework\\glfw\lib-msvc120" /LIBPATH:D:\SP2\Studio_Project_Framework\DM2122_Framework\Debug glew32.lib glfw3.lib opengl32.lib winmm.lib Common.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\SP2\Studio_Project_Framework\DM2122_Framework\Debug\Application.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\SP2\Studio_Project_Framework\DM2122_Framework\Debug\Application.lib" /MACHINE:X86 Debug\Application.obj
          Debug\Camera.obj
          Debug\Camera2.obj
          Debug\Camera3.obj
@@ -49,11 +23,9 @@
          Debug\StudioProject.obj
          Debug\Utility.obj
          Debug\Weapon.obj
-         LINK : C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug\Application.exe not found or not built by the last incremental link; performing full link
-     1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
-         Application.vcxproj -> C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug\Application.exe
-     1>Done Building Project "C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Application\Application.vcxproj" (Build target(s)).
+         Application.vcxproj -> D:\SP2\Studio_Project_Framework\DM2122_Framework\Debug\Application.exe
+     1>Done Building Project "D:\SP2\Studio_Project_Framework\DM2122_Framework\Application\Application.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:12.73
+Time Elapsed 00:00:01.03

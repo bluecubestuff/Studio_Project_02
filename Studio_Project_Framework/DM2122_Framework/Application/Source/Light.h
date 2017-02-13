@@ -2,6 +2,7 @@
 #define LIGHT_H
 
 #include "MeshBuilder.h"
+#include "DetectMemoryLeak.h"
 
 struct Light
 {

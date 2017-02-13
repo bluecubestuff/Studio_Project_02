@@ -7,6 +7,7 @@
 #include "Mtx44.h"
 #include "Application.h"
 #include "MeshBuilder.h"
+#include "DetectMemoryLeak.h"
 
 Position operator*(const Mtx44& lhs, const Position& rhs);
 

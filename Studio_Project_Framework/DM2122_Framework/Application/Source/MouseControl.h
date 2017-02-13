@@ -2,6 +2,7 @@
 #define _MOUSE_CONTROL_H
 
 #include "Application.h"
+#include "DetectMemoryLeak.h"
 
 //Include GLEW
 #include <GL/glew.h>

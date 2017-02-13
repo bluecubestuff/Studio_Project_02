@@ -4,6 +4,7 @@
 #include "Mesh.h"
 #include "Vertex.h"
 #include "LoadOBJ.h"
+#include "DetectMemoryLeak.h"
 /******************************************************************************/
 /*!
 		Class MeshBuilder:

@@ -2,6 +2,7 @@
 #define VERTEX_H
 
 #include "Vector3.h"
+#include "DetectMemoryLeak.h"
 
 struct Position
 {

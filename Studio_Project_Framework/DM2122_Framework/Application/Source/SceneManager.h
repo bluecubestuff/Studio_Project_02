@@ -3,6 +3,7 @@
 
 #include "Scene.h"
 #include "Application.h"
+#include "DetectMemoryLeak.h"
 
 #include <map>
 using std::map;

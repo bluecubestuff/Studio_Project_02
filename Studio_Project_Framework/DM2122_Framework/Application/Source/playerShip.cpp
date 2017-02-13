@@ -62,6 +62,7 @@ void PlayerShip::Update(double dt)	//Player PlayerShip movement and control
 		if (camTime < 0)
 		{
 			freeCam = false;
+			this->Camera->Init(this->Position, this->Forward, this->Up);
 			camTime = 0.5f;
 		}
 		camTime -= dt;
@@ -105,7 +106,6 @@ void PlayerShip::Update(double dt)	//Player PlayerShip movement and control
 			if (this->Inertia.Length() > this->Speed)
 				this->Inertia -= this->Forward * (float)dt;	//increase PlayerShip Velocity
 		}
-		std::cout << Inertia << std::endl;
 		//======================================================================
 		if (Application::IsKeyPressed('E') && Inertia.Length() < 5)	//strafe right
 		{
@@ -178,13 +178,44 @@ void PlayerShip::Update(double dt)	//Player PlayerShip movement and control
 		{
 			this->Position -= this->Up.Normalized() * (float)dt;
 		}
-		this->Position += this->Inertia * Speed * 0.25 * dt;
+		if (Application::IsKeyPressed('D'))		//roll right
+		{
+			float rollSpeed = 30 * (float)dt;
+			Mtx44 roll;
+			roll.SetToRotation(rollSpeed, this->Forward.x, this->Forward.y, this->Forward.z);
+			this->Right = roll * this->Right;
+			this->Up = roll * this->Up;
+		}
+		else if (Application::IsKeyPressed('A'))		//roll left
+		{
+			float rollSpeed = -30 * (float)dt;
+			Mtx44 roll;
+			roll.SetToRotation(rollSpeed, this->Forward.x, this->Forward.y, this->Forward.z);
+			this->Right = roll * this->Right;
+			this->Up = roll * this->Up;
+		}
 	}
 	//===========================================================================
 	//mouse control for the ship
 	if (!freeCam)
 	{
-
+		cursorPos = mouse.mouseMovement();
+		if (cursorPos.x)
+		{
+			float yawSpeed = cursorPos.x * -5 * (float)dt;
+			Mtx44 yaw;
+			yaw.SetToRotation(yawSpeed, this->Up.x, this->Up.y, this->Up.z);
+			this->Forward = yaw * this->Forward;
+			this->Right = yaw * this->Right;
+		}
+		if (cursorPos.y)
+		{
+			float pitchSpeed = cursorPos.y * 5 * (float)dt;
+			Mtx44 pitch;
+			pitch.SetToRotation(pitchSpeed, this->Right.x, this->Right.y, this->Right.y);
+			this->Forward = pitch * this->Forward;
+			this->Up = pitch * this->Up;
+		}
 	}
 	//===========================================================================
 	this->Position += this->Inertia * (float)dt;	//update position according to PlayerShip inertia

@@ -2,6 +2,7 @@
 #define _ENEMY_SHIP_H
 
 #include "ship.h"
+#include "DetectMemoryLeak.h"
 
 class EnemyShip : public Ship
 {

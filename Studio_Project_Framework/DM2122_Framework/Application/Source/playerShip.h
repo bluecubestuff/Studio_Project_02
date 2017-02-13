@@ -2,6 +2,7 @@
 #define _PLAYER_SHIP_H
 
 #include "ship.h"
+#include "DetectMemoryLeak.h"
 #include "Camera2.h"
 
 class PlayerShip : public Ship
@@ -13,9 +14,12 @@ public:
 
 	Camera2* Camera;
 
+	Mouse mouse;
+	POINT cursorPos;
+
 	bool freeCam;
 
-	float camTime;
+	double camTime;
 
 	void Update(double dt);
 private:

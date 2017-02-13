@@ -12,6 +12,10 @@ PlayerShip::PlayerShip()
 	this->FlightAssist = true;
 	this->freeCam = false;
 
+	Camera = new Camera2;
+
+	Camera->Init(this->Position, this->Forward, this->Up);
+
 	this->Stamp = Mtx44(Right.x, Right.y, Right.z, 0, Up.x, Up.y, Up.z, 0, Forward.x, Forward.y, Forward.z, 0, Position.x, Position.y, Position.z, 1);
 }
 
@@ -26,6 +30,10 @@ PlayerShip::PlayerShip(Vector3 f, Vector3 u, Vector3 r, Vector3 p, Vector3 i, fl
 	this->FlightAssist = true;
 	this->freeCam = false;
 
+	Camera = new Camera2;
+
+	Camera->Init(this->Position, this->Forward, this->Up);
+
 	this->Stamp = Mtx44(r.x, r.y, r.z, 0, u.x, u.y, u.z, 0, f.x, f.y, f.z, 0, p.x, p.y, p.z, 1);
 }
 
@@ -34,12 +42,7 @@ PlayerShip::~PlayerShip()
 
 }
 
-void PlayerShip::playerInit()
-{
-	Camera.Init(this->Position, this->Forward, this->Up);
-}
-
-void PlayerShip::playerShipUpdate(double dt)	//Player PlayerShip movement and control
+void PlayerShip::Update(double dt)	//Player PlayerShip movement and control
 {
 	//========================================================================
 	//Setting FlightAssist on or off
@@ -133,5 +136,5 @@ void PlayerShip::playerShipUpdate(double dt)	//Player PlayerShip movement and co
 	}
 	//===========================================================================
 	this->Position += this->Inertia * (float)dt;	//update position according to PlayerShip inertia
-	Camera.Update(dt, freeCam);
+	Camera->Update(dt, freeCam, this->Forward, this->Right, this->Up, this->Position);
 }

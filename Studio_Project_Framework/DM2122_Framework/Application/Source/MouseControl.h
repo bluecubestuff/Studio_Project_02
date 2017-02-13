@@ -11,10 +11,15 @@
 class Mouse
 {
 public:
+	Mouse();
+	~Mouse();
+
 	int anchorX, anchorY;
 	int windowX, windowY;
 	POINT mousePosition;
 	POINT currMousePosition;
+private:
+	POINT mouseMovement();
 };
 
 #endif

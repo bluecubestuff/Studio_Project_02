@@ -99,8 +99,13 @@ void Application::Run()
 {
 	//Main Loop
 	Scene *scene = new StudioProject();
+	Scene *scene02 = new StudioProject();
+
 	SceneManager::get_instance()->AddScene(scene);
+	SceneManager::get_instance()->AddScene(scene02);
+
 	scene->Init();
+	//scene02->Init();
 
 	m_timer.startTimer();    // Start timer to calculate how long it takes to render this frame
 	while (!glfwWindowShouldClose(m_window) && !IsKeyPressed(VK_ESCAPE))
@@ -109,7 +114,10 @@ void Application::Run()
 	} //Check if the ESC key had been pressed or if the window had been closed
 
 	scene->Exit();
+	scene02->Exit();
+	
 	delete scene;
+	delete scene02;
 }
 
 void Application::Exit()

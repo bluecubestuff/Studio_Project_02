@@ -32,6 +32,7 @@ void Camera2::Init(const Vector3& pos, const Vector3& target, const Vector3& up)
 	camRight = target.Cross(up).Normalized();
 
 	pitchLimit = 0.f;
+	yawLimit = 0.f;
 
 	curMousePos.x = 0;
 	curMousePos.y = 0;
@@ -48,7 +49,7 @@ void Camera2::Update(double dt, bool freeCam, Vector3 f, Vector3 r, Vector3 u, V
 
 	if (freeCam)
 	{
-		if (curMousePos.x)
+		if (curMousePos.x > 0 && yawLimit < 70.f)
 		{
 			float yawSpeed = curMousePos.x * dt * CAMERA_SPEED;
 			Mtx44 yaw;
@@ -56,6 +57,17 @@ void Camera2::Update(double dt, bool freeCam, Vector3 f, Vector3 r, Vector3 u, V
 			temp = yaw * temp;
 			up = yaw * up;
 			camRight = yaw * camRight;
+			yawLimit += yawSpeed;
+		}
+		else if (curMousePos.x < 0 && yawLimit > -70.f)
+		{
+			float yawSpeed = curMousePos.x * dt * CAMERA_SPEED;
+			Mtx44 yaw;
+			yaw.SetToRotation(-yawSpeed, u.x, u.y, u.z);
+			temp = yaw * temp;
+			up = yaw * up;
+			camRight = yaw * camRight;
+			yawLimit += yawSpeed;
 		}
 		if (curMousePos.y > 0 && pitchLimit > -89.f)
 		{
@@ -65,7 +77,6 @@ void Camera2::Update(double dt, bool freeCam, Vector3 f, Vector3 r, Vector3 u, V
 			temp = pitch * temp;
 			up = pitch * up;
 			pitchLimit += pitchSpeed;
-			//camRight = pitch * camRight;
 		}
 		else if (curMousePos.y < 0 && pitchLimit < 89.f)
 		{
@@ -75,8 +86,12 @@ void Camera2::Update(double dt, bool freeCam, Vector3 f, Vector3 r, Vector3 u, V
 			temp = pitch * temp;
 			up = pitch * up;
 			pitchLimit += pitchSpeed;
-			//camRight = pitch * camRight;
 		}
+	}
+	else
+	{
+		temp = f;
+		up = u;
 	}
 
 	curMousePos.x = 0;

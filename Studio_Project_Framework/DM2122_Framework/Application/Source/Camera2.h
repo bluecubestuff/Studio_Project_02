@@ -20,6 +20,7 @@ public:
 	Vector3 camRight;
 
 	float pitchLimit;
+	float yawLimit;
 
 	Mouse* mouse;
 

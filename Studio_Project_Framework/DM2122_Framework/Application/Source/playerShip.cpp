@@ -62,7 +62,7 @@ void PlayerShip::Update(double dt)	//Player PlayerShip movement and control
 		if (camTime < 0)
 		{
 			freeCam = false;
-			camTime = 1;
+			camTime = 0.5f;
 		}
 		camTime -= dt;
 	}
@@ -71,7 +71,8 @@ void PlayerShip::Update(double dt)	//Player PlayerShip movement and control
 		if (camTime < 0)
 		{
 			freeCam = true;
-			camTime = 1;
+			this->Camera->Init(this->Position, this->Forward, this->Up);
+			camTime = 0.5f;
 		}
 		camTime -= dt;
 	}
@@ -98,6 +99,51 @@ void PlayerShip::Update(double dt)	//Player PlayerShip movement and control
 		{
 			if (this->Inertia.Length() < this->Speed)	//if PlayerShip Velocity is lower than speed
 				this->Inertia += this->Forward * (float)dt;	//increase PlayerShip velocity
+		}
+		else if (this->Speed < 0)
+		{
+			if (this->Inertia.Length() > this->Speed)
+				this->Inertia -= this->Forward * (float)dt;	//increase PlayerShip Velocity
+		}
+		std::cout << Inertia << std::endl;
+		//======================================================================
+		if (Application::IsKeyPressed('E') && Inertia.Length() < 5)	//strafe right
+		{
+			this->Position -= this->Right.Normalized() * (float)dt;
+		}
+		else if (Application::IsKeyPressed('Q') && Inertia.Length() < 5)	//strafe left
+		{
+			this->Position += this->Right.Normalized() * (float)dt;
+		}
+		//======================================================================
+		if (Application::IsKeyPressed('R'))		//elevate
+		{
+			this->Position += this->Up.Normalized() * (float)dt;
+		}
+		else if (Application::IsKeyPressed('F'))	//depress
+		{
+			this->Position -= this->Up.Normalized() * (float)dt;
+		}
+	}
+	//===========================================================================
+	else if (this->FlightAssist == true)	//FLIGHT ASSISTS ON
+	{
+		if (Application::IsKeyPressed('W') && this->Speed < 10.f)
+		{
+			this->Speed += 4.f * (float)dt;
+		}
+		else if (Application::IsKeyPressed('S') && this->Speed > -10.f)
+		{
+			this->Speed += -4.f * (float)dt;
+		}
+		else if (Application::IsKeyPressed('0'))
+		{
+			this->Speed = 0;
+		}
+		if (this->Speed > 0)
+		{
+			if (this->Inertia.Length() < this->Speed)	//if PlayerShip Velocity is lower than speed
+				this->Inertia += this->Forward * (float)dt;	//increase PlayerShip velocity
 			else if (this->Inertia.Length() > this->Speed)
 				this->Inertia -= this->Forward * (float)dt;	//decrease PlayerShip Velocity
 		}
@@ -115,29 +161,24 @@ void PlayerShip::Update(double dt)	//Player PlayerShip movement and control
 				this->Inertia -= this->Inertia.Normalized() * (float)dt;
 			}
 		}
-		//======================================================================
-		if (Application::IsKeyPressed('E'))	//strafe right
+		if (Application::IsKeyPressed('E') && Inertia.Length() < 5)	//strafe right
 		{
-			this->Inertia -= this->Right.Normalized() * (float)dt;
+			this->Position -= this->Right.Normalized() * (float)dt;
 		}
-		else if (Application::IsKeyPressed('Q'))	//strafe left
+		else if (Application::IsKeyPressed('Q') && Inertia.Length() < 5)	//strafe left
 		{
-			this->Inertia += this->Right.Normalized() * (float)dt;
+			this->Position += this->Right.Normalized() * (float)dt;
 		}
 		//======================================================================
 		if (Application::IsKeyPressed('R'))		//elevate
 		{
-			this->Inertia += this->Up.Normalized() * (float)dt;
+			this->Position += this->Up.Normalized() * (float)dt;
 		}
 		else if (Application::IsKeyPressed('F'))	//depress
 		{
-			this->Inertia -= this->Up.Normalized() * (float)dt;
+			this->Position -= this->Up.Normalized() * (float)dt;
 		}
-	}
-	//===========================================================================
-	else if (this->FlightAssist == true)	//FLIGHT ASSISTS ON
-	{
-
+		this->Position += this->Inertia * Speed * 0.25 * dt;
 	}
 	//===========================================================================
 	//mouse control for the ship

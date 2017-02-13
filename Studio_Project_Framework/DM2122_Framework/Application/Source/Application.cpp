@@ -1,5 +1,5 @@
 
-#include "Application.h"
+//#include "Application.h"
 
 //Include the standard C++ headers
 #include <stdio.h>
@@ -111,7 +111,7 @@ void Application::Run()
 	while (!glfwWindowShouldClose(m_window) && !IsKeyPressed(VK_ESCAPE))
 	{
 		SceneManager::get_instance()->sceneUpdate();
-	} //Check if the ESC key had been pressed or if the window had been closed
+	}						//Check if the ESC key had been pressed or if the window had been closed
 
 	scene->Exit();
 	scene02->Exit();

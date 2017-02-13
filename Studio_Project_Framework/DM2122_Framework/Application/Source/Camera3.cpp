@@ -7,12 +7,12 @@
 //Include GLFW
 #include <GLFW/glfw3.h>
 
+//debugging purposes
 #include <iostream>
 using std::cout;
 using std::endl;
 
 //extern GLFWwindow* m_window;
-
 Camera3::Camera3()
 {
 }
@@ -211,7 +211,6 @@ void Camera3::Update(double dt)
 		target = position + view;
 
 		limitPitch += pitch;
-
 	}
 
 	//boundaryCheck();

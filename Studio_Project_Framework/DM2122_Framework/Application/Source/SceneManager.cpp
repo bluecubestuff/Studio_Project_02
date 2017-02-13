@@ -1,20 +1,20 @@
 #include "SceneManager.h"
 #include <iostream>
-SceneManager::SceneManager() : currSceneID(0), nextSceneID(0) {} //constructor
+SceneManager::SceneManager() : currSceneID(0), nextSceneID(0) {}	//constructor
 
-SceneManager::~SceneManager() {} //destructor
+SceneManager::~SceneManager() {}									//destructor
 
-void SceneManager::AddScene(Scene* newScene) //AddScene
+void SceneManager::AddScene(Scene* newScene)						//AddScene
 {
-	if (nextSceneID > 0) //check if is 1st scene
+	if (nextSceneID > 0)	//check if is 1st scene
 	{
 		sceneStorage[nextSceneID] = newScene;
 		nextSceneID = currSceneID + 1;
 	}
-	else //not 1st scene
+	else	//not 1st scene
 	{
-		sceneStorage[currSceneID] = newScene; //assign it to map
-		nextSceneID++; //move next ID forward
+		sceneStorage[currSceneID] = newScene;	//assign it to map
+		nextSceneID++;							//move next ID forward
 	}
 }
 
@@ -28,11 +28,12 @@ void SceneManager::sceneUpdate()
 {
 	if (Application::IsKeyPressed(VK_F1)) //place holder
 	{
-		SetNextScene(nextSceneID);
-		sceneStorage[currSceneID]->Init();
+		sceneStorage[currSceneID]->Exit(); //exit prev scene
+		SetNextScene(nextSceneID);		   //set next scene
+		sceneStorage[currSceneID]->Init(); //init next scene
 	}
 
-	std::cout<<sceneStorage.size();
+	//std::cout<<sceneStorage.size();
 	sceneStorage[currSceneID]->Update(Application::m_timer.getElapsedTime());
 	sceneStorage[currSceneID]->Render();
 	//Swap buffers

@@ -16,8 +16,8 @@ Mouse::~Mouse()
 
 POINT Mouse::mouseMovement()
 {
-	GetCursorPos(&currMousePosition);	//get cursor position
-	SetCursorPos(anchorX, anchorY);		//set cursor back onto origin
+	GetCursorPos(&currMousePosition);		//get cursor position
+	SetCursorPos(anchorX, anchorY);			//set cursor back onto origin
 	if (anchorX > currMousePosition.x)		//if cursor is leftside of center
 	{
 		mousePosition.x = currMousePosition.x - anchorX;

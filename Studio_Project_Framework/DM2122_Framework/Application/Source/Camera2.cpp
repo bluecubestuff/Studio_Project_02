@@ -15,182 +15,87 @@ using std::endl;
 
 Camera2::Camera2()
 {
+	mouse = new Mouse;
 }
 
 Camera2::~Camera2()
 {
+	delete this;
 }
 
 void Camera2::Init(const Vector3& pos, const Vector3& target, const Vector3& up)
 {
 	this->position = defaultPosition = pos;
-	this->target = defaultTarget = target;
-	Vector3 view = (target - position).Normalized();
-	right = view.Cross(up);
-	right.y = 0;
-	right.Normalize();
-	this->up = defaultUp = right.Cross(view).Normalized();
+	this->target = defaultTarget = temp = target;
+	this->up = defaultUp = up;
 
-	forward.Set(0, 0, -2);
-	back.Set(0, 0, 1);
-	playerLeft.Set(-1, 0, 0);
-	playerRight.Set(1, 0, 0);
+	camRight = target.Cross(up).Normalized();
 
-	GetCursorPos(&curMousePos);
-	glfwGetWindowSize(Application::m_window, &WindowX, &WindowY);
-	SetCursorPos(WindowX / 2, WindowY / 2);
+	pitchLimit = 0.f;
+	yawLimit = 0.f;
+
+	curMousePos.x = 0;
+	curMousePos.y = 0;
+	SetCursorPos(mouse->anchorX, mouse->anchorY);
 }
 
 void Camera2::Update(double dt, bool freeCam, Vector3 f, Vector3 r, Vector3 u, Vector3 p)
 {
-	GetCursorPos(&curMousePos);
 	static const float CAMERA_SPEED = 5.f;
 	position = p;
-	target = position + forward;
+	target = position + temp;
 
-	//for mouse pos in scene
-	mp.x = curMousePos.x;
-	mp.y = curMousePos.y;
+	curMousePos = mouse->mouseMovement();
 
 	if (freeCam)
 	{
-		if (curMousePos.x < anchorX)//yaw left
+		if (curMousePos.x > 0 && yawLimit < 70.f)
 		{
-			Vector3 view;
-			view = (target - position).Normalized();
-
-			right = view.Cross(up);
-			right.y = 0;
-			right.Normalize();
-			up = right.Cross(view).Normalized();
-
-			yawLeft = (float)((-CAMERA_SPEED * (curMousePos.x - anchorX)) * dt);
-			Mtx44 rotation;
-			rotation.SetToRotation(yawLeft, 0, 1, 0);
-
-			//---------------------------------
-			forward = rotation * forward;
-			back = rotation * back;
-			playerRight = rotation * playerRight;
-			playerLeft = rotation * playerLeft;
-			//---------------------------------
-
-			view = rotation * view;
-			target = position + view;
+			float yawSpeed = curMousePos.x * dt * CAMERA_SPEED;
+			Mtx44 yaw;
+			yaw.SetToRotation(-yawSpeed, u.x, u.y, u.z);
+			temp = yaw * temp;
+			up = yaw * up;
+			camRight = yaw * camRight;
+			yawLimit += yawSpeed;
 		}
-		if (curMousePos.x > anchorX)//yaw right
+		else if (curMousePos.x < 0 && yawLimit > -70.f)
 		{
-			Vector3 view;
-			view = (target - position).Normalized();
-
-			right = view.Cross(up);
-			right.y = 0;
-			right.Normalize();
-			up = right.Cross(view).Normalized();
-
-			yawRight = (float)((CAMERA_SPEED * (anchorX - curMousePos.x)) * dt);
-			Mtx44 rotation;
-			rotation.SetToRotation(yawRight, 0, 1, 0);
-
-			//---------------------------------
-			forward = rotation * forward;
-			back = rotation * back;
-			playerRight = rotation * playerRight;
-			playerLeft = rotation * playerLeft;
-			//---------------------------------
-
-			view = rotation * view;
-			target = position + view;
+			float yawSpeed = curMousePos.x * dt * CAMERA_SPEED;
+			Mtx44 yaw;
+			yaw.SetToRotation(-yawSpeed, u.x, u.y, u.z);
+			temp = yaw * temp;
+			up = yaw * up;
+			camRight = yaw * camRight;
+			yawLimit += yawSpeed;
 		}
-
-		if (limitPitch < 55 && curMousePos.y < anchorY)//pitch up
+		if (curMousePos.y > 0 && pitchLimit > -89.f)
 		{
-
-
-			float pitch = (float)((CAMERA_SPEED * (anchorY - curMousePos.y)) * dt);
-			Vector3 view = (target - position).Normalized();
-			right = view.Cross(up);
-			right.y = 0;
-			right.Normalize();
-			up = right.Cross(view).Normalized();
-			Mtx44 rotation;
-			rotation.SetToRotation(pitch, right.x, right.y, right.z);
-
-			//---------------------------------
-			forward = rotation * forward;
-			back = rotation * back;
-			playerRight = rotation * playerRight;
-			playerLeft = rotation * playerLeft;
-			//---------------------------------
-
-			view = rotation * view;
-			target = position + view;
-
-			limitPitch += pitch;
-
+			float pitchSpeed = curMousePos.y * dt * -CAMERA_SPEED;
+			Mtx44 pitch;
+			pitch.SetToRotation(pitchSpeed, camRight.x, camRight.y, camRight.z);
+			temp = pitch * temp;
+			up = pitch * up;
+			pitchLimit += pitchSpeed;
 		}
-
-		if (limitPitch > -55 && curMousePos.y > anchorY)//pitch down
+		else if (curMousePos.y < 0 && pitchLimit < 89.f)
 		{
-			float pitch = (float)((-CAMERA_SPEED * (curMousePos.y - anchorY)) * dt);
-			Vector3 view = (target - position).Normalized();
-			right = view.Cross(up);
-			right.y = 0;
-			right.Normalize();
-			up = right.Cross(view).Normalized();
-			Mtx44 rotation;
-			rotation.SetToRotation(pitch, right.x, right.y, right.z);
-
-			//---------------------------------
-			forward = rotation * forward;
-			back = rotation * back;
-			playerRight = rotation * playerRight;
-			playerLeft = rotation * playerLeft;
-			//---------------------------------
-
-			view = rotation * view;
-			target = position + view;
-
-			limitPitch += pitch;
-
+			float pitchSpeed = curMousePos.y * dt * -CAMERA_SPEED;
+			Mtx44 pitch;
+			pitch.SetToRotation(pitchSpeed, camRight.x, camRight.y, camRight.z);
+			temp = pitch * temp;
+			up = pitch * up;
+			pitchLimit += pitchSpeed;
 		}
-
-		//boundaryCheck();
-
-		if (Application::IsKeyPressed('N'))//move up(y-axis)
-		{
-			Vector3 view = (target - position).Normalized();
-			Vector3 right = view.Cross(up);
-			right.y = 0;
-			right.Normalize();
-			up = right.Cross(view).Normalized();
-			position = position + up;
-			target = position + view;
-		}
-		if (Application::IsKeyPressed('M'))//move down(y-axis)
-		{
-			Vector3 view = (target - position).Normalized();
-			Vector3 right = view.Cross(up);
-			right.y = 0;
-			right.Normalize();
-			up = right.Cross(view).Normalized();
-			position = position - up;
-			target = position + view;
-		}
-
-		if (Application::IsKeyPressed('R'))//reset camera
-		{
-			Reset();
-		}
-
-		GetCursorPos(&curMousePos);
-		SetCursorPos(WindowX / 2, WindowY / 2);
-		anchorX = WindowX / 2;
-		anchorY = WindowY / 2;
-
-		mp.x = curMousePos.x;
-		mp.y = curMousePos.y;
 	}
+	else
+	{
+		temp = f;
+		up = u;
+	}
+
+	curMousePos.x = 0;
+	curMousePos.y = 0;
 }
 
 void Camera2::Reset()

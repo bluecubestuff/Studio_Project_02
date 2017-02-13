@@ -18,8 +18,9 @@ public:
 	int windowX, windowY;
 	POINT mousePosition;
 	POINT currMousePosition;
-private:
 	POINT mouseMovement();
+private:
+	
 };
 
 #endif

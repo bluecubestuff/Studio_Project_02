@@ -8,6 +8,7 @@ PlayerShip::PlayerShip()
 	this->Position = Vector3(0, 0, 0);
 	this->Inertia = Vector3(0, 0, 0);
 	this->Speed = 0;
+	this->camTime = 0.f;
 
 	this->FlightAssist = true;
 	this->freeCam = false;
@@ -58,11 +59,21 @@ void PlayerShip::Update(double dt)	//Player PlayerShip movement and control
 	//toggle between mouse control the camera or the ship
 	if (Application::IsKeyPressed(VK_MBUTTON) && freeCam)
 	{
-		freeCam = false;
+		if (camTime < 0)
+		{
+			freeCam = false;
+			camTime = 1;
+		}
+		camTime -= dt;
 	}
 	else if (Application::IsKeyPressed(VK_MBUTTON) && !freeCam)
 	{
-		freeCam = true;
+		if (camTime < 0)
+		{
+			freeCam = true;
+			camTime = 1;
+		}
+		camTime -= dt;
 	}
 	//========================================================================
 	if (this->FlightAssist == false)	//FLIGHT ASSISTS OFF
@@ -87,7 +98,7 @@ void PlayerShip::Update(double dt)	//Player PlayerShip movement and control
 		{
 			if (this->Inertia.Length() < this->Speed)	//if PlayerShip Velocity is lower than speed
 				this->Inertia += this->Forward * (float)dt;	//increase PlayerShip velocity
-			else if (this->Inertia.Length() < this->Speed)
+			else if (this->Inertia.Length() > this->Speed)
 				this->Inertia -= this->Forward * (float)dt;	//decrease PlayerShip Velocity
 		}
 		else if (this->Speed < 0)
@@ -107,11 +118,11 @@ void PlayerShip::Update(double dt)	//Player PlayerShip movement and control
 		//======================================================================
 		if (Application::IsKeyPressed('E'))	//strafe right
 		{
-			this->Inertia += this->Right.Normalized() * (float)dt;
+			this->Inertia -= this->Right.Normalized() * (float)dt;
 		}
 		else if (Application::IsKeyPressed('Q'))	//strafe left
 		{
-			this->Inertia -= this->Right.Normalized() * (float)dt;
+			this->Inertia += this->Right.Normalized() * (float)dt;
 		}
 		//======================================================================
 		if (Application::IsKeyPressed('R'))		//elevate

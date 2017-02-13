@@ -15,8 +15,9 @@ public:
 
 	bool freeCam;
 
-	void Update(double dt);
+	float camTime;
 
+	void Update(double dt);
 private:
 	float Speed;
 

@@ -2,7 +2,7 @@
 #define _CAMERA_2_H
 
 #include "Camera.h"
-
+#include "MouseControl.h"
 #include <windows.h>
 
 class Camera2 : public Camera
@@ -15,15 +15,14 @@ public:
 	Vector3 defaultPosition;
 	Vector3 defaultTarget;
 	Vector3 defaultUp;
-	Vector3 right;
 
-	float limitPitch;
-	float yawRight, yawLeft;
-	float limit;
+	Vector3 temp;
+	Vector3 camRight;
 
-	float timeCheck;
+	float pitchLimit;
 
-	POINT mp; //mousePos for scene area
+	Mouse* mouse;
+
 	POINT curMousePos;
 
 	Camera2();

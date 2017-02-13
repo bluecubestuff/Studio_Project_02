@@ -32,7 +32,6 @@ void SceneManager::sceneUpdate()
 		sceneStorage[currSceneID]->Init();
 	}
 
-	std::cout<<sceneStorage.size();
 	sceneStorage[currSceneID]->Update(Application::m_timer.getElapsedTime());
 	sceneStorage[currSceneID]->Render();
 	//Swap buffers

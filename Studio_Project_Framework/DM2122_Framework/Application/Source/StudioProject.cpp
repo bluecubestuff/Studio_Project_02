@@ -96,7 +96,7 @@ void StudioProject::Init()
 
 
 	//Initialize camera settings
-	camera.Init(Vector3(1000, 950, 1010), Vector3(1000, 950, 1000), Vector3(0, 1, 0));
+	//camera.Init(Vector3(1000, 950, 1010), Vector3(1000, 950, 1000), Vector3(0, 1, 0));
 
 	//meshes------------------------------------------------------------------------------------------
 	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1000, 1000, 1000);
@@ -184,6 +184,9 @@ void StudioProject::Init()
 	Mtx44 projection;
 	projection.SetToPerspective(45.f, 4.f / 3.f, 0.1f, 5000.f);
 	projectionStack.LoadMatrix(projection);
+
+	//=============================================================================
+	Player = new PlayerShip;
 }
 
 static float ROT_LIMIT = 45.f;
@@ -236,8 +239,8 @@ void StudioProject::Update(double dt)
 		glUniform1i(m_parameters[U_LIGHT0_TYPE], light[0].type);
 	}
 	//--------------------------------------------------------------------------------
-
-	camera.Update(dt);
+	Player->Update(dt);
+	//camera.Update(dt);
 
 }
 
@@ -252,9 +255,9 @@ void StudioProject::Render()
 
 	viewStack.LoadIdentity();
 
-	viewStack.LookAt(camera.position.x, camera.position.y,
-		camera.position.z, camera.target.x, camera.target.y,
-		camera.target.z, camera.up.x, camera.up.y, camera.up.z);
+	viewStack.LookAt(Player->Camera->position.x, Player->Camera->position.y,
+		Player->Camera->position.z, Player->Camera->target.x, Player->Camera->target.y,
+		Player->Camera->target.z, Player->Camera->up.x, Player->Camera->up.y, Player->Camera->up.z);
 
 
 	Position lightPosition_cameraspace = viewStack.Top() * light[0].LightPosition;

@@ -1,2 +1,6 @@
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v120:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit
+<<<<<<< HEAD
+Debug|Win32|C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\|
+=======
 Debug|Win32|C:\Users\161692W\Desktop\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\|
+>>>>>>> 1d73ec71ba7365c3f4ff345898faf9f21c778210

@@ -11,6 +11,7 @@
 #include "Mesh.h"
 #include "MatrixStack.h"
 #include "Light.h"
+#include "playerShip.h"
 
 #include <string>
 #include <vector>
@@ -128,8 +129,10 @@ private:
 
 	char mapArray[2000][2000];
 
+	PlayerShip* Player;
+
 	//Camera2 camera;
-	Camera3 camera;
+	//Camera3 camera;
 };
 
 #endif

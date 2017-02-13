@@ -2,6 +2,7 @@
 #define _PLAYER_SHIP_H
 
 #include "ship.h"
+#include "Camera2.h"
 
 class PlayerShip : public Ship
 {
@@ -10,15 +11,13 @@ public:
 	PlayerShip(Vector3 f, Vector3 u, Vector3 r, Vector3 p, Vector3 i, float s);
 	~PlayerShip();
 
+	Camera2* Camera;
+
 	bool freeCam;
 
-	void playerInit();
-
-	void playerShipUpdate(double dt);
+	void Update(double dt);
 
 private:
-	Camera2 Camera;
-
 	float Speed;
 
 	bool FlightAssist;

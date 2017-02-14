@@ -46,10 +46,9 @@ void Camera2::Update(double dt, bool freeCam, Vector3 f, Vector3 r, Vector3 u, V
 	position = p;
 	target = position + temp;
 
-	curMousePos = mouse->mouseMovement();
-
 	if (freeCam)
 	{
+		curMousePos = mouse->mouseMovement();
 		if (curMousePos.x > 0 && yawLimit < 70.f)
 		{
 			float yawSpeed = curMousePos.x * (float)dt * CAMERA_SPEED;

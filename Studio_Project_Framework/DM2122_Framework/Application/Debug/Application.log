@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿Build started 2/14/2017 2:05:06 PM.
      1>Project "C:\Users\162865W\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Application\Application.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
@@ -5,12 +6,50 @@
          ObjectFactory.cpp
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\162865W\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug\Application.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\162865W\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\\glew\lib /LIBPATH:"C:\Users\162865W\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\\glfw\lib-msvc120" /LIBPATH:C:\Users\162865W\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug glew32.lib glfw3.lib opengl32.lib winmm.lib Common.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\162865W\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug\Application.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\162865W\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug\Application.lib" /MACHINE:X86 Debug\Application.obj
+=======
+<<<<<<< HEAD
+﻿Build started 2/14/2017 2:07:02 PM.
+     1>Project "C:\Users\161692W\Desktop\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Application\Application.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\161692W\Desktop\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\\glew\include /IC:\Users\161692W\Desktop\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\\glfw\include /IC:\Users\161692W\Desktop\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\\Common\Source /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source\Application.cpp Source\Camera.cpp Source\Camera2.cpp Source\Camera3.cpp Source\MouseControl.cpp Source\SceneManager.cpp Source\StudioProject.cpp Source\Utility.cpp Source\enemyShip.cpp Source\main.cpp Source\playerShip.cpp Source\ship.cpp
+         SceneManager.cpp
+         Application.cpp
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         ship.cpp
+         playerShip.cpp
+         main.cpp
+         enemyShip.cpp
+         Utility.cpp
+         StudioProject.cpp
+         MouseControl.cpp
+         Camera3.cpp
+         Camera2.cpp
+         Camera.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\161692W\Desktop\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug\Application.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\161692W\Desktop\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\\glew\lib /LIBPATH:"C:\Users\161692W\Desktop\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\\glfw\lib-msvc120" /LIBPATH:C:\Users\161692W\Desktop\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug glew32.lib glfw3.lib opengl32.lib winmm.lib Common.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\161692W\Desktop\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug\Application.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\161692W\Desktop\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug\Application.lib" /MACHINE:X86 Debug\Application.obj
+=======
+﻿Build started 2/14/2017 11:55:22 AM.
+     1>Project "C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Application\Application.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\\glew\include /IC:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\\glfw\include /IC:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\\Common\Source /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source\playerShip.cpp
+         playerShip.cpp
+     1>c:\users\161996y\documents\studio_project_02\studio_project_framework\dm2122_framework\application\source\playership.cpp(215): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug\Application.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\\glew\lib /LIBPATH:"C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\\glfw\lib-msvc120" /LIBPATH:C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug glew32.lib glfw3.lib opengl32.lib winmm.lib Common.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug\Application.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug\Application.lib" /MACHINE:X86 Debug\Application.obj
+>>>>>>> origin/master
+>>>>>>> 4246a02deaf542756cbf28f31bda104efe5f8b79
          Debug\Camera.obj
          Debug\Camera2.obj
          Debug\Camera3.obj
          Debug\enemyShip.obj
+<<<<<<< HEAD
          Debug\GameObject.obj
+=======
+         Debug\GalaxyGenerate.obj
+>>>>>>> 4246a02deaf542756cbf28f31bda104efe5f8b79
          Debug\Item.obj
+         Debug\LandGenerate.obj
          Debug\LoadOBJ.obj
          Debug\LoadTGA.obj
          Debug\main.obj
@@ -24,10 +63,12 @@
          Debug\SceneManager.obj
          Debug\shader.obj
          Debug\ship.obj
+         Debug\SolarGenerate.obj
          Debug\StudioProject.obj
          Debug\Tree.obj
          Debug\Utility.obj
          Debug\Weapon.obj
+<<<<<<< HEAD
      1>LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
          Application.vcxproj -> C:\Users\162865W\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug\Application.exe
      1>Done Building Project "C:\Users\162865W\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Application\Application.vcxproj" (Build target(s)).
@@ -35,3 +76,20 @@
 Build succeeded.
 
 Time Elapsed 00:00:01.24
+=======
+<<<<<<< HEAD
+         Application.vcxproj -> C:\Users\161692W\Desktop\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug\Application.exe
+     1>Done Building Project "C:\Users\161692W\Desktop\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Application\Application.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.56
+=======
+         Application.vcxproj -> C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Debug\Application.exe
+     1>Done Building Project "C:\Users\161996y\Documents\Studio_Project_02\Studio_Project_Framework\DM2122_Framework\Application\Application.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.26
+>>>>>>> origin/master
+>>>>>>> 4246a02deaf542756cbf28f31bda104efe5f8b79

@@ -39,11 +39,25 @@
     <Filter Include="Source Files\Scene">
       <UniqueIdentifier>{0bdda0c8-c491-4670-9151-c9703a13cf26}</UniqueIdentifier>
     </Filter>
+<<<<<<< HEAD
     <Filter Include="Source Files\Objects">
       <UniqueIdentifier>{8efb77dc-2335-4192-b8f9-f7ae3dd340bc}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Object">
       <UniqueIdentifier>{14de4e41-9248-4f50-870a-54fc94d76b08}</UniqueIdentifier>
+=======
+    <Filter Include="Header Files\GameObject">
+      <UniqueIdentifier>{6bb409a2-ebb8-44aa-a725-9c56d1493279}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObject">
+      <UniqueIdentifier>{4cffcf6a-cbf2-41fd-8b21-af4071bc108d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MapGenerate">
+      <UniqueIdentifier>{c900433b-d9cd-4fc6-af7a-47f3904fcc67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MapGenerate">
+      <UniqueIdentifier>{6256b629-f617-4d1d-9e7e-850ad2c2968c}</UniqueIdentifier>
+>>>>>>> 4246a02deaf542756cbf28f31bda104efe5f8b79
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -99,10 +113,19 @@
       <Filter>Source Files\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Source\Item.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GameObject</Filter>
     </ClCompile>
     <ClCompile Include="Source\Weapon.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\LandGenerate.cpp">
+      <Filter>Source Files\MapGenerate</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GalaxyGenerate.cpp">
+      <Filter>Source Files\MapGenerate</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SolarGenerate.cpp">
+      <Filter>Source Files\MapGenerate</Filter>
     </ClCompile>
     <ClCompile Include="Source\Mithril.cpp">
       <Filter>Source Files\Objects</Filter>
@@ -184,11 +207,26 @@
     <ClInclude Include="Source\SceneManager.h">
       <Filter>Header Files\Scene</Filter>
     </ClInclude>
+<<<<<<< HEAD
+=======
+    <ClInclude Include="Source\GameObject.h">
+      <Filter>Header Files\GameObject</Filter>
+    </ClInclude>
+>>>>>>> 4246a02deaf542756cbf28f31bda104efe5f8b79
     <ClInclude Include="Source\Item.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\GameObject</Filter>
     </ClInclude>
     <ClInclude Include="Source\Weapon.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\LandGenerate.h">
+      <Filter>Header Files\MapGenerate</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GalaxyGenerate.h">
+      <Filter>Header Files\MapGenerate</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SolarGenerate.h">
+      <Filter>Header Files\MapGenerate</Filter>
     </ClInclude>
     <ClInclude Include="Source\GameObject.h">
       <Filter>Header Files\Object</Filter>

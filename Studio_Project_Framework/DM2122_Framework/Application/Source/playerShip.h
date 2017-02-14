@@ -22,6 +22,7 @@ public:
 	double camTime;
 
 	void Update(double dt);
+	Vector3 getter(std::string);
 private:
 	float Speed;
 

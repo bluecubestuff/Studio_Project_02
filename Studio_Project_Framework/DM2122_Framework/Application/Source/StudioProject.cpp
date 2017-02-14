@@ -8,6 +8,7 @@
 #include "MeshBuilder.h"
 #include "Utility.h"
 #include "LoadTGA.h"
+#include "Weapon.h"
 
 #include <iostream>
 
@@ -99,7 +100,10 @@ void StudioProject::Init()
 	//camera.Init(Vector3(1000, 950, 1010), Vector3(1000, 950, 1000), Vector3(0, 1, 0));
 
 	//meshes------------------------------------------------------------------------------------------
-	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1000, 1000, 1000);
+	//meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1000, 1000, 1000);
+	//=============================================================================
+	Player = new PlayerShip;
+	//=============================================================================
 
 	meshList[GEO_LIGHTBALL] = MeshBuilder::GenerateSphere("lightball", Color(1, 1, 1), 24, 13, 1);
 
@@ -206,9 +210,13 @@ void StudioProject::Init()
 	Mtx44 projection;
 	projection.SetToPerspective(45.f, 4.f / 3.f, 0.1f, 5000.f);
 	projectionStack.LoadMatrix(projection);
+<<<<<<< HEAD
 
 	//=============================================================================
 	Player = new PlayerShip;
+
+=======
+>>>>>>> origin/master
 }
 
 static float ROT_LIMIT = 45.f;
@@ -217,6 +225,7 @@ static float SCALE_LIMIT = 5.f;
 void StudioProject::Update(double dt)
 {
 	float LSPEED = 10.f;
+	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("Axes", Player->getter("right"), Player->getter("up"), Player->getter("forward"));
 
 	if (Application::IsKeyPressed('1')) //enable back face culling
 		glEnable(GL_CULL_FACE);
@@ -263,7 +272,6 @@ void StudioProject::Update(double dt)
 	//--------------------------------------------------------------------------------
 	Player->Update(dt);
 	//camera.Update(dt);
-
 }
 
 
@@ -334,12 +342,12 @@ void StudioProject::Render()
 	}
 
 
-	RenderMesh(meshList[GEO_AXES], false);
+	//RenderMesh(meshList[GEO_AXES], false);
 
 	RenderSkybox();
 
 	//=================================================================================================
-	modelStack.PushMatrix();
+	/*modelStack.PushMatrix();
 	modelStack.Translate(light[0].LightPosition.x, light[0].LightPosition.y, light[0].LightPosition.z);
 	RenderMesh(meshList[GEO_LIGHTBALL], false);
 	modelStack.PopMatrix();
@@ -347,10 +355,13 @@ void StudioProject::Render()
 	modelStack.PushMatrix();
 	modelStack.Translate(light[1].LightPosition.x, light[1].LightPosition.y, light[1].LightPosition.z);
 	RenderMesh(meshList[GEO_LIGHTBALL], false);
-	modelStack.PopMatrix();
+	modelStack.PopMatrix();*/
 	//===================================================================================================
-
-	
+	modelStack.PushMatrix();
+	modelStack.Translate(Player->getter("position").x, Player->getter("position").y, Player->getter("position").z);
+	modelStack.Translate(Player->getter("forward").x, Player->getter("forward").y, Player->getter("forward").z);
+	RenderMesh(meshList[GEO_AXES], false);
+	modelStack.PopMatrix();
 
 }
 

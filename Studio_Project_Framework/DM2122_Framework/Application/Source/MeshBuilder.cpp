@@ -16,18 +16,18 @@ Then generate the VBO/IBO and store them in Mesh object
 \return Pointer to mesh storing VBO/IBO of reference axes
 */
 /******************************************************************************/
-Mesh* MeshBuilder::GenerateAxes(const std::string &meshName, float lengthX, float lengthY, float lengthZ)
+Mesh* MeshBuilder::GenerateAxes(const std::string &meshName, Vector3 lengthX, Vector3 lengthY, Vector3 lengthZ)
 {
 	std::vector<Vertex> vertex_buffer_data;
 	std::vector<GLuint> index_buffer_data;
 	Vertex v;
 
-	v.pos.Set(-lengthX, 0, 0);	v.color.Set(1, 0, 0);	vertex_buffer_data.push_back(v);
-	v.pos.Set(lengthX, 0, 0);	v.color.Set(1, 0, 0);	vertex_buffer_data.push_back(v);
-	v.pos.Set(0, -lengthY, 0);	v.color.Set(0, 1, 0);	vertex_buffer_data.push_back(v);
-	v.pos.Set(0, lengthY, 0);	v.color.Set(0, 1, 0);	vertex_buffer_data.push_back(v);
-	v.pos.Set(0, 0, -lengthZ);	v.color.Set(0, 0, 1);	vertex_buffer_data.push_back(v);
-	v.pos.Set(0, 0, lengthZ);	v.color.Set(0, 0, 1);	vertex_buffer_data.push_back(v);
+	v.pos.Set(0, 0, 0);	v.color.Set(1, 0, 0);	vertex_buffer_data.push_back(v);
+	v.pos.Set(lengthX.x, lengthX.y, lengthX.z);	v.color.Set(1, 0, 0);	vertex_buffer_data.push_back(v);
+	v.pos.Set(0, 0, 0);	v.color.Set(0, 1, 0);	vertex_buffer_data.push_back(v);
+	v.pos.Set(lengthY.x, lengthY.y, lengthY.z);	v.color.Set(0, 1, 0);	vertex_buffer_data.push_back(v);
+	v.pos.Set(0, 0, 0);	v.color.Set(0, 0, 1);	vertex_buffer_data.push_back(v);
+	v.pos.Set(lengthZ.x, lengthZ.y, lengthZ.z);	v.color.Set(0, 0, 1);	vertex_buffer_data.push_back(v);
 
 	index_buffer_data.push_back(0);
 	index_buffer_data.push_back(1);

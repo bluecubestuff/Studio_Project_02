@@ -1,4 +1,6 @@
 #include "MouseControl.h"
+#include <math.h>
+#include <iostream>
 
 Mouse::Mouse()
 {
@@ -16,7 +18,6 @@ Mouse::~Mouse()
 
 POINT Mouse::mouseMovement()
 {
-
 	mousePosition.x = 0;				//reset mouse position
 	mousePosition.y = 0;
 	GetCursorPos(&currMousePosition);	//get cursor position
@@ -36,6 +37,22 @@ POINT Mouse::mouseMovement()
 	else if (anchorY > currMousePosition.y)	//if cursor is above center
 	{
 		mousePosition.y = currMousePosition.y - anchorY;
+	}
+	return mousePosition;
+}
+
+POINT Mouse::flightMouse()
+{
+	POINT temp;							//temp point to store previous mouse position
+	temp = mousePosition;
+	GetCursorPos(&currMousePosition);	//get cursor position
+	//std::cout << 'x' << temp.x << 'y' << temp.y << std::endl;
+	mousePosition.x = currMousePosition.x - anchorX;		//set mousePostion
+	mousePosition.y = currMousePosition.y - anchorY;
+	if (sqrt((float)mousePosition.x * (float)mousePosition.x + (float)mousePosition.y * (float)mousePosition.y) > 100) //if the mouse move out of range
+	{
+		mousePosition = temp;		//reset to previous Position
+		SetCursorPos(temp.x + anchorX , temp.y + anchorY);	//reset cursor to previous Position
 	}
 	return mousePosition;
 }

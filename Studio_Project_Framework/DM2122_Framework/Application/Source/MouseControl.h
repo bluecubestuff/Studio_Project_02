@@ -20,6 +20,7 @@ public:
 	POINT mousePosition;
 	POINT currMousePosition;
 	POINT mouseMovement();
+	POINT flightMouse();
 private:
 	
 };

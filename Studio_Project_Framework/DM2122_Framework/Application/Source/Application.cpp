@@ -98,13 +98,15 @@ void Application::Init()
 void Application::Run()
 {
 	//Main Loop
-	Scene *scene = new StudioProject();
-	Scene *scene02 = new StudioProject();
+	//Scene *scene = new StudioProject();
+	//Scene *scene02 = new StudioProject();
 
-	SceneManager::get_instance()->AddScene(scene);
-	SceneManager::get_instance()->AddScene(scene02);
+	//SceneManager::get_instance()->AddScene(scene);
+	//SceneManager::get_instance()->AddScene(scene02);
 
-	scene->Init();
+	createScene();
+
+	SceneManager::get_instance()->getScene()->Init();
 	//scene02->Init();
 
 	m_timer.startTimer();    // Start timer to calculate how long it takes to render this frame
@@ -113,11 +115,20 @@ void Application::Run()
 		SceneManager::get_instance()->sceneUpdate();
 	}						//Check if the ESC key had been pressed or if the window had been closed
 
-	scene->Exit();
-	scene02->Exit();
+	SceneManager::get_instance()->getScene()->Exit();
+	//scene02->Exit();
 	
-	delete scene;
-	delete scene02;
+	delete SceneManager::get_instance()->getScene();
+	//delete scene02;
+}
+
+void Application::createScene()
+{
+	Scene *scene = new StudioProject();
+	Scene *scene02 = new StudioProject();
+
+	SceneManager::get_instance()->AddScene(scene);
+	SceneManager::get_instance()->AddScene(scene02);
 }
 
 void Application::Exit()

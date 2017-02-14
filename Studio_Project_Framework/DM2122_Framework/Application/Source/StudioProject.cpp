@@ -8,6 +8,7 @@
 #include "MeshBuilder.h"
 #include "Utility.h"
 #include "LoadTGA.h"
+#include "Weapon.h"
 
 #include <iostream>
 
@@ -187,6 +188,7 @@ void StudioProject::Init()
 
 	//=============================================================================
 	Player = new PlayerShip;
+
 }
 
 static float ROT_LIMIT = 45.f;
@@ -241,7 +243,6 @@ void StudioProject::Update(double dt)
 	//--------------------------------------------------------------------------------
 	Player->Update(dt);
 	//camera.Update(dt);
-
 }
 
 

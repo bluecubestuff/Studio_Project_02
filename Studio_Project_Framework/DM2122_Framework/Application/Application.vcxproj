@@ -89,7 +89,9 @@
     <ClCompile Include="Source\Camera2.cpp" />
     <ClCompile Include="Source\Camera3.cpp" />
     <ClCompile Include="Source\enemyShip.cpp" />
+    <ClCompile Include="Source\GalaxyGenerate.cpp" />
     <ClCompile Include="Source\Item.cpp" />
+    <ClCompile Include="Source\LandGenerate.cpp" />
     <ClCompile Include="Source\LoadOBJ.cpp" />
     <ClCompile Include="Source\LoadTGA.cpp" />
     <ClCompile Include="Source\main.cpp" />
@@ -100,6 +102,7 @@
     <ClCompile Include="Source\SceneManager.cpp" />
     <ClCompile Include="Source\shader.cpp" />
     <ClCompile Include="Source\ship.cpp" />
+    <ClCompile Include="Source\SolarGenerate.cpp" />
     <ClCompile Include="Source\StudioProject.cpp" />
     <ClCompile Include="Source\Utility.cpp" />
     <ClCompile Include="Source\Weapon.cpp" />
@@ -111,8 +114,10 @@
     <ClInclude Include="Source\Camera3.h" />
     <ClInclude Include="Source\DetectMemoryLeak.h" />
     <ClInclude Include="Source\enemyShip.h" />
+    <ClInclude Include="Source\GalaxyGenerate.h" />
     <ClInclude Include="Source\GameObject.h" />
     <ClInclude Include="Source\Item.h" />
+    <ClInclude Include="Source\LandGenerate.h" />
     <ClInclude Include="Source\Light.h" />
     <ClInclude Include="Source\LoadOBJ.h" />
     <ClInclude Include="Source\LoadTGA.h" />
@@ -125,6 +130,7 @@
     <ClInclude Include="Source\SceneManager.h" />
     <ClInclude Include="Source\shader.hpp" />
     <ClInclude Include="Source\ship.h" />
+    <ClInclude Include="Source\SolarGenerate.h" />
     <ClInclude Include="Source\StudioProject.h" />
     <ClInclude Include="Source\Utility.h" />
     <ClInclude Include="Source\Vertex.h" />

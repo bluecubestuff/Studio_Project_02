@@ -127,6 +127,28 @@ void StudioProject::Init()
 	meshList[GEO_TOP] = MeshBuilder::GenerateQuad("top", Color(1, 1, 1), 1.f, 1.f);
 	meshList[GEO_TOP]->textureID = LoadTGA("Image//top.tga");
 
+	//objects in scene
+	/*meshList[GEO_ROCK] = MeshBuilder::GenerateOBJ("rock", "OBJ//rock.obj");
+	meshList[GEO_ROCK]->material.kAmbient.Set(0.4f, 0.4f, 0.4f);
+	meshList[GEO_ROCK]->material.kDiffuse.Set(0.6f, 0.6f, 0.6f);
+	meshList[GEO_ROCK]->material.kSpecular.Set(0.5f, 0.5f, 0.5f);
+	meshList[GEO_ROCK]->material.kShininess = 0.5f;
+	meshList[GEO_ROCK]->textureID = LoadTGA("Image//rock.tga");*/
+
+	/*meshList[GEO_TREE] = MeshBuilder::GenerateOBJ("tree", "OBJ//tree.obj");
+	meshList[GEO_TREE]->material.kAmbient.Set(0.4f, 0.4f, 0.4f);
+	meshList[GEO_TREE]->material.kDiffuse.Set(0.6f, 0.6f, 0.6f);
+	meshList[GEO_TREE]->material.kSpecular.Set(0.5f, 0.5f, 0.5f);
+	meshList[GEO_TREE]->material.kShininess = 0.5f;
+	meshList[GEO_TREE]->textureID = LoadTGA("Image//tree.tga");*/
+
+	/*meshList[GEO_MITHRIL] = MeshBuilder::GenerateOBJ("mithril", "OBJ//mithril.obj");
+	meshList[GEO_MITHRIL]->material.kAmbient.Set(0.4f, 0.4f, 0.4f);
+	meshList[GEO_MITHRIL]->material.kDiffuse.Set(0.6f, 0.6f, 0.6f);
+	meshList[GEO_MITHRIL]->material.kSpecular.Set(0.5f, 0.5f, 0.5f);
+	meshList[GEO_MITHRIL]->material.kShininess = 0.5f;
+	meshList[GEO_MITHRIL]->textureID = LoadTGA("Image//mithril.tga");*/
+
 	//------------------------------------------------------------------------------------------
 	//light
 	light[0].type = Light::LIGHT_DIRECTIONAL;

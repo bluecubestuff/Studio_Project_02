@@ -13,6 +13,7 @@
 #include "Light.h"
 #include "playerShip.h"
 #include "DetectMemoryLeak.h"
+#include "GameObject.h"
 
 #include <string>
 #include <vector>
@@ -26,6 +27,11 @@ struct TAABB
 
 class StudioProject : public Scene
 {
+	friend class Rock;
+	friend class Tree;
+	friend class Mithril;
+	friend class GameObject;
+
 	enum GEOMETRY_TYPE
 	{
 		GEO_AXES,
@@ -47,6 +53,11 @@ class StudioProject : public Scene
 		GEO_BOTTOM,
 		GEO_FRONT,
 		GEO_BACK,
+
+		//objects
+		GEO_ROCK,
+		GEO_MITHRIL,
+		GEO_TREE,
 
 		NUM_GEOMETRY,
 	};
